@@ -3,6 +3,8 @@
  */
 package com.pkg.portal.model.hotel;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,9 +12,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.pkg.portal.model.location.State;
+import com.pkg.portal.model.room.Room;
 
 /**
  * @author Mallareddy Belageri
@@ -36,6 +42,9 @@ public class Hotel {
 	@ManyToOne
     @JoinColumn(name="STATE_ID", nullable=false)
     private State state;
+	
+	@OneToMany(mappedBy="hotel")
+    private Set<Room> rooms;
 
 	public Hotel() {
 		// TODO Auto-generated constructor stub
@@ -86,6 +95,7 @@ public class Hotel {
 	/**
 	 * @return the state
 	 */
+	@JsonBackReference
 	public State getState() {
 		return state;
 	}
@@ -95,6 +105,21 @@ public class Hotel {
 	 */
 	public void setState(State state) {
 		this.state = state;
+	}
+
+	/**
+	 * @return the rooms
+	 */
+	@JsonManagedReference
+	public Set<Room> getRooms() {
+		return rooms;
+	}
+
+	/**
+	 * @param rooms the rooms to set
+	 */
+	public void setRooms(Set<Room> rooms) {
+		this.rooms = rooms;
 	}
 	
 	

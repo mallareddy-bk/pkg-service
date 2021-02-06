@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
+import com.pkg.portal.model.hotel.Hotel;
 import com.pkg.portal.model.location.State;
 
 /**
@@ -15,6 +16,6 @@ import com.pkg.portal.model.location.State;
  */
 public interface StateRepository extends CrudRepository<State, Long>{
 	
-	//List<State> findByCountryName(String countryName);
+	List<Hotel> findByHotels(Long stateId);
 
 }

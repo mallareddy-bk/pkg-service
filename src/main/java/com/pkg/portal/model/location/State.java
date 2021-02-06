@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.pkg.portal.model.hotel.Hotel;
 
 /**
@@ -76,6 +78,7 @@ public class State {
 	/**
 	 * @return the country
 	 */
+	@JsonBackReference
 	public Country getCountry() {
 		return country;
 	}
@@ -90,6 +93,7 @@ public class State {
 	/**
 	 * @return the hotels
 	 */
+	@JsonManagedReference
 	public Set<Hotel> getHotels() {
 		return hotels;
 	}

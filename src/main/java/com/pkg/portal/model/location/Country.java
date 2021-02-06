@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 /**
  * @author Mallareddy Belageri
  *
@@ -67,6 +69,7 @@ public class Country {
 	/**
 	 * @return the states
 	 */
+	@JsonManagedReference
 	public Set<State> getStates() {
 		return states;
 	}

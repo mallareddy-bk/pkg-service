@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.pkg.portal.controllers.state;
+package com.pkg.portal.controllers.hotel;
 
 import java.util.List;
 
@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pkg.portal.model.hotel.Hotel;
 import com.pkg.portal.model.location.State;
+import com.pkg.portal.service.hotel.HotelService;
 import com.pkg.portal.service.state.StateService;
 
 /**
@@ -22,19 +24,23 @@ import com.pkg.portal.service.state.StateService;
  */
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping({ "/state" })
-public class StateController {
+@RequestMapping({ "/hotel" })
+public class HotelController {
+	
+	@Autowired
+	HotelService hotelService;
 	
 	@Autowired
 	StateService stateService;
 	
 	@PostMapping ("/states")
-	public List<State> getStates(@RequestBody String countryName) throws Exception {
-		List<State> stateList = stateService.getStates(countryName);
-		if (!CollectionUtils.isEmpty(stateList)) {
-			return stateList;
+	public List<Hotel> getHotels(@RequestBody State state) throws Exception {
+		List<Hotel> hotelList = stateService.getHotels(state.getStateId());
+		List<Hotel> hotelList1 = hotelService.getHotels(state.getStateId());
+		if (!CollectionUtils.isEmpty(hotelList)) {
+			return hotelList;
 		} else {
-			throw new Exception("Invalid State Name.");
+			throw new Exception("Invalid State.");
 		}
 	}
 }

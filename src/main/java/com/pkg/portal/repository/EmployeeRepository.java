@@ -4,7 +4,6 @@
 package com.pkg.portal.repository;
 
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.Repository;
 
 import com.pkg.portal.model.employee.Employee;
 

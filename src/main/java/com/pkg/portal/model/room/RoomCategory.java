@@ -3,15 +3,19 @@
  */
 package com.pkg.portal.model.room;
 
+import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 /**
  * @author Mallareddy Belageri
@@ -32,8 +36,16 @@ public class RoomCategory {
 	@Column (name="ROOM_CATEGORY_Name")
 	private String roomCatName;
 	
-	@OneToMany(mappedBy="roomCategory")
-    private Set<Room> rooms;
+	/*@OneToMany(mappedBy="roomCategory")
+    private Set<Room> rooms;*/
+	
+	@ManyToMany(
+            cascade = {
+                CascadeType.PERSIST,
+                CascadeType.MERGE
+            },
+            mappedBy = "roomCategories")
+    private Set<Room> rooms = new HashSet<>();
 	
 	public RoomCategory() {
 		// TODO Auto-generated constructor stub
@@ -84,6 +96,7 @@ public class RoomCategory {
 	/**
 	 * @return the rooms
 	 */
+	@JsonBackReference
 	public Set<Room> getRooms() {
 		return rooms;
 	}
@@ -94,7 +107,6 @@ public class RoomCategory {
 	public void setRooms(Set<Room> rooms) {
 		this.rooms = rooms;
 	}
-	
-	
+
 
 }
