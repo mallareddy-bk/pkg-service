@@ -15,84 +15,132 @@ import com.pkg.portal.model.room.RoomCategory;
  *
  */
 public class TimesheetData {
-	public String selectedCountry;
-    public Date selectedDate;
-    public State selectedState;
-    public Hotel selectedHotel;
-    public Room selectedRoom;
-    public RoomCategory selectedService;
+	
+	private int position;
+	private long timesheetId;
+	private String empId;
+	private String hotelName;
+	private String roomNo;
+	private String serviceName;
+	private String date;
+	
 	/**
-	 * @return the selectedCountry
+	 * @param position
+	 * @param timesheetId
+	 * @param empId
+	 * @param hotelName
+	 * @param roomNo
+	 * @param serviceName
+	 * @param date
 	 */
-	public String getSelectedCountry() {
-		return selectedCountry;
+	public TimesheetData(int position, long timesheetId, String empId,
+			String hotelName, String roomNo, String serviceName, String date) {
+		super();
+		this.position = position;
+		this.timesheetId = timesheetId;
+		this.empId = empId;
+		this.hotelName = hotelName;
+		this.roomNo = roomNo;
+		this.serviceName = serviceName;
+		this.date = date;
 	}
+
 	/**
-	 * @param selectedCountry the selectedCountry to set
+	 * @return the position
 	 */
-	public void setSelectedCountry(String selectedCountry) {
-		this.selectedCountry = selectedCountry;
+	public int getPosition() {
+		return position;
 	}
+
 	/**
-	 * @return the selectedDate
+	 * @param position the position to set
 	 */
-	public Date getSelectedDate() {
-		return selectedDate;
+	public void setPosition(int position) {
+		this.position = position;
 	}
+
 	/**
-	 * @param selectedDate the selectedDate to set
+	 * @return the timesheetId
 	 */
-	public void setSelectedDate(Date selectedDate) {
-		this.selectedDate = selectedDate;
+	public long getTimesheetId() {
+		return timesheetId;
 	}
+
 	/**
-	 * @return the selectedState
+	 * @param timesheetId the timesheetId to set
 	 */
-	public State getSelectedState() {
-		return selectedState;
+	public void setTimesheetId(long timesheetId) {
+		this.timesheetId = timesheetId;
 	}
+
 	/**
-	 * @param selectedState the selectedState to set
+	 * @return the empId
 	 */
-	public void setSelectedState(State selectedState) {
-		this.selectedState = selectedState;
+	public String getEmpId() {
+		return empId;
 	}
+
 	/**
-	 * @return the selectedHotel
+	 * @param empId the empId to set
 	 */
-	public Hotel getSelectedHotel() {
-		return selectedHotel;
+	public void setEmpId(String empId) {
+		this.empId = empId;
 	}
+
 	/**
-	 * @param selectedHotel the selectedHotel to set
+	 * @return the hotelName
 	 */
-	public void setSelectedHotel(Hotel selectedHotel) {
-		this.selectedHotel = selectedHotel;
+	public String getHotelName() {
+		return hotelName;
 	}
+
 	/**
-	 * @return the selectedRoom
+	 * @param hotelName the hotelName to set
 	 */
-	public Room getSelectedRoom() {
-		return selectedRoom;
+	public void setHotelName(String hotelName) {
+		this.hotelName = hotelName;
 	}
+
 	/**
-	 * @param selectedRoom the selectedRoom to set
+	 * @return the roomNo
 	 */
-	public void setSelectedRoom(Room selectedRoom) {
-		this.selectedRoom = selectedRoom;
+	public String getRoomNo() {
+		return roomNo;
 	}
+
 	/**
-	 * @return the selectedService
+	 * @param roomNo the roomNo to set
 	 */
-	public RoomCategory getSelectedService() {
-		return selectedService;
+	public void setRoomNo(String roomNo) {
+		this.roomNo = roomNo;
 	}
+
 	/**
-	 * @param selectedService the selectedService to set
+	 * @return the serviceName
 	 */
-	public void setSelectedService(RoomCategory selectedService) {
-		this.selectedService = selectedService;
+	public String getServiceName() {
+		return serviceName;
 	}
-    
-    
+
+	/**
+	 * @param serviceName the serviceName to set
+	 */
+	public void setServiceName(String serviceName) {
+		this.serviceName = serviceName;
+	}
+
+	/**
+	 * @return the date
+	 */
+	public String getDate() {
+		return date;
+	}
+
+	/**
+	 * @param date the date to set
+	 */
+	public void setDate(String date) {
+		this.date = date;
+	}
+
 }
