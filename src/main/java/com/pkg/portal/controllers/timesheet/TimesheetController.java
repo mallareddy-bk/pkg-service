@@ -152,6 +152,7 @@ public class TimesheetController {
 		if (null != optTimesheet) {
 			Timesheet timesheet = optTimesheet.get();
 			timesheet.setStatus(status);
+			timesheet.setApproveOrRejectDate(new Date());
 			timesheetService.updateTimesheet(timesheet);
 		}
 		return getPendingTaskList();
